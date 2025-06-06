@@ -1,63 +1,116 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19708620&assignment_repo_type=AssignmentRepo)
 # Express.js RESTful API Assignment
 
-This assignment focuses on building a RESTful API using Express.js, implementing proper routing, middleware, and error handling.
+This project is a RESTful API built using Express.js that manages a simple product catalog. It demonstrates CRUD operations, middleware usage, and error handling.
 
-## Assignment Overview
+---
 
-You will:
-1. Set up an Express.js server
-2. Create RESTful API routes for a product resource
-3. Implement custom middleware for logging, authentication, and validation
-4. Add comprehensive error handling
-5. Develop advanced features like filtering, pagination, and search
+## Table of Contents
 
-## Getting Started
+You should fill in the Table of Contents section with the provided list. Here is the rewritten markdown content to place at `$SELECTION_PLACEHOLDER$`:
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Run the server:
-   ```
-   npm start
-   ```
+```markdown
+- [Project Overview](#project-overview)  
+- [Setup Instructions](#setup-instructions)  
+- [API Endpoints](#api-endpoints)  
+- [Middleware](#middleware)  
+- [Error Handling](#error-handling)  
+- [Testing](#testing)  
+- [Author](#author)  
+```
+---
 
-## Files Included
+## Project Overview
 
-- `Week2-Assignment.md`: Detailed assignment instructions
-- `server.js`: Starter Express.js server file
-- `.env.example`: Example environment variables file
+This API allows users to create, read, update, and delete products with fields such as `id`, `name`, `description`, `price`, `category`, and `inStock` status. It includes middleware for request logging, authentication, validation, and comprehensive error handling.
 
-## Requirements
+---
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Postman, Insomnia, or curl for API testing
+## Setup Instructions
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   cd express-api
+
+2. Install dependancies
+npm install
+
+3. Start the server:
+
+npm start
+
+4. The API runs at:
+
+http://localhost:3000
 
 ## API Endpoints
+# Base URL
 
-The API will have the following endpoints:
+http://localhost:3000/api/products
 
-- `GET /api/products`: Get all products
-- `GET /api/products/:id`: Get a specific product
-- `POST /api/products`: Create a new product
-- `PUT /api/products/:id`: Update a product
-- `DELETE /api/products/:id`: Delete a product
 
-## Submission
+## Endpoints
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+GET	/api/products
+GET	/api/products/:id	
+POST	/api/products
+PUT	/api/products/:id
+DELETE	/api/products/:id
 
-1. Complete all the required API endpoints
-2. Implement the middleware and error handling
-3. Document your API in the README.md
-4. Include examples of requests and responses
+## Example Requests
+List all products:
+GET http://localhost:3000/api/products
 
-## Resources
+Get product with ID 1:
+GET http://localhost:3000/api/products/1
 
-- [Express.js Documentation](https://expressjs.com/)
-- [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+Create a new product:
+POST http://localhost:3000/api/products
+Body (JSON):
+
+{
+  "name": "Tablet",
+  "description": "10 inch display tablet",
+  "price": 300,
+  "category": "electronics",
+  "inStock": true
+}
+Update product with ID 1:
+PUT http://localhost:3000/api/products/1
+Body (JSON):
+
+{
+  "price": 1100,
+  "inStock": false
+}
+Delete product with ID 1:
+DELETE http://localhost:3000/api/products/1
+
+# Middleware
+- Logger Middleware: Logs request method, URL, and timestamp
+
+- Authentication Middleware: Checks API key in request headers
+
+- Validation Middleware: Validates product creation and update data
+
+- Error Handling Middleware: Handles 404, validation, and general errors with appropriate responses
+
+# Error Handling
+- 404 Not Found: When product with specified ID does not exist
+
+- 400 Bad Request: For validation errors during create/update
+
+- 401 Unauthorized: If API key is missing or invalid (if enabled)
+
+- 500 Internal Server Error: For unexpected server errors
+
+# Testing
+Use Postman, Insomnia, or curl to test the API endpoints locally.
+
+Example curl command to list all products:
+
+curl http://localhost:3000/api/products
+
+## Author
+Mellon Pakkies
+GitHub link: @MellonP
